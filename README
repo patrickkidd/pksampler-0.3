@@ -1,0 +1,24 @@
+PKSampler 0.3 README
+
+
+Installation instructions:
+--------------------------
+
+The short of it: 
+
+$ python install.py
+
+Run 
+
+$ python install.py --help
+
+for further instructions.
+
+
+Known Issues:
+-----------------------------------------
+
+- There is an issue with reading pixmaps if some [Qt/KDE] icons styles are installed. Baghira is one example. This is an issue related to using embedded pixmaps with qembed/pyuic and some kind of funk performed by the style package. PKSampler works well with most default configurations.
+
+
+

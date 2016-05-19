@@ -1,0 +1,18 @@
+#!/usr/local/bin/python
+
+from qt import *
+
+
+a = QApplication([])
+w = QWidget()
+a.setMainWidget(w)
+w.show()
+w.resize(200,150)
+
+p = QPixmap('knob/knob_1.png')
+#p.setMask(p.createHeuristicMask())
+#w.setPaletteBackgroundPixmap(p)
+w.setErasePixmap(p)
+
+a.exec_loop()
+

@@ -1,0 +1,5 @@
+
+all:
+	@echo -n "Rendering images
+	@echo -n "Applying masks to and embedding pixmaps into \"../embedded_pixmaps.py\""
+	@python mask.py

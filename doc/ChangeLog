@@ -1,0 +1,41 @@
+2005-01-27    <patrickkidd@gci.net>
+
+	* MainWindow.py: renamed from PKSampler.py.
+	
+	* Grouping.py: Created to seperate the grouping classes from the 
+	MainWindow.
+	
+	* Globals.py: Added DisplayTimer class, which calls updateDisplay() on 
+	all rapidly-occuring display update functions,
+	(eg. SampleWidget.MainDisplay.updateDisplay). This should reduce some 
+	of the overhead cause by starting a gillion timers for each display 
+	object, and provides a single point of control for all realtime
+	displays.
+	
+	* ControlPanel.py: Update interval setting changes global DisplayTimer 
+	interval, the change is therefore seen in real time.
+
+	* install.py: Moved embedded_pixmaps.[py,pyc] to pksampler/pov, which
+	is now manually copied from ./pksampler/pov to PKSAMPLERDIR/pksampler.
+	This keeps eric from trying to parse the file every time a py file is 
+	saved/opened.
+
+	* PKSampler.py: added sample widget cacheing; loading samples is now
+	nearly instantaneous.
+
+	* pksampler: App seems to work _very_ well on this 1GHz Inspiron 8000, 
+	with a maestro3 sound card. Maybe the bad sound on the pksampler dev 
+	box is due to hardware problems?
+
+2005-01-22    <patrickkidd@gci.net>
+
+	* pksampler: Moved project to 'pksampler' package, Added installer
+	To install (as root): python install.py [-b path]
+	To uninstall (as root): python uninstall.py
+	install info is stored in ./pksamplerconfig.py
+	'make clean' will effectively to a distclean'
+
+2004-09-20    <patrickkidd@gci.net>
+
+	* pksampler: initial release (0.1-beta)
+

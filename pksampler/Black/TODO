@@ -1,0 +1,11 @@
+
+SELECTOR
+
+- look into subclassing Selector.Selector
+- Put Directories on the left, files for selected dir on right
+
+
+SAMPLES
+
+- Fix Slider.setValue animation, emit problem
+- Tighten up Control

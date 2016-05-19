@@ -1,0 +1,42 @@
+#include "colors.inc"
+#include "pksampler.inc"
+
+# declare lit_segment = light_source
+   {<0,0,0> color 1
+   looks_like {
+      union {
+         sphere { <0,0,0> 0.8
+              translate <0,-2.5,0> }
+         sphere { <0,0,0> 0.8
+              translate <0,2.5,0> }
+         cylinder { <0,-2.5,0>, <0,2.5,0> ,0.8}
+         pigment { color <0,.63,0> }
+         finish { ambient 1 }
+         }
+     }
+      rotate <90,0,0>
+   }
+     
+     
+# declare dark_segment =
+      union {
+         sphere { 
+            <0,0,0> 0.8 
+            translate <0,-2.5,0> 
+         }
+         sphere {
+            <0,0,0> 0.8 
+            translate <0,2.5,0> 
+         }
+         cylinder {
+            <0,-2.5,0>,
+            <0,2.5,0>,
+            0.8
+         }
+         //pigment {Gray05} // looks good on black
+         pigment { Gray65 }
+         //color Gray
+         finish { ambient .5 }
+         rotate <90,0,0>
+         scale <1,.05,1>
+      }

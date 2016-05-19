@@ -1,0 +1,186 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>GroupDialogForm</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>GroupDialogForm</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>448</width>
+            <height>325</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Group Selector</string>
+    </property>
+    <property name="icon">
+        <pixmap>image0</pixmap>
+    </property>
+    <property name="modal">
+        <bool>true</bool>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QPushButton" row="3" column="1">
+            <property name="name">
+                <cstring>deleteButton</cstring>
+            </property>
+            <property name="text">
+                <string>Delete</string>
+            </property>
+            <property name="accel">
+                <string></string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="3" column="0">
+            <property name="name">
+                <cstring>addButton</cstring>
+            </property>
+            <property name="text">
+                <string>Add</string>
+            </property>
+            <property name="accel">
+                <string></string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="3" column="4">
+            <property name="name">
+                <cstring>cancelButton</cstring>
+            </property>
+            <property name="text">
+                <string>Cancel</string>
+            </property>
+            <property name="accel">
+                <string></string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="3" column="2">
+            <property name="name">
+                <cstring>okButton</cstring>
+            </property>
+            <property name="text">
+                <string>OK</string>
+            </property>
+            <property name="accel">
+                <string></string>
+            </property>
+            <property name="default">
+                <bool>true</bool>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="3" column="3">
+            <property name="name">
+                <cstring>noGroupButton</cstring>
+            </property>
+            <property name="text">
+                <string>No Group</string>
+            </property>
+        </widget>
+        <widget class="QListBox" row="1" column="0" rowspan="2" colspan="3">
+            <property name="name">
+                <cstring>groupListBox</cstring>
+            </property>
+            <property name="lineWidth">
+                <number>1</number>
+            </property>
+            <property name="margin">
+                <number>0</number>
+            </property>
+            <property name="variableWidth">
+                <bool>false</bool>
+            </property>
+        </widget>
+        <widget class="QListBox" row="2" column="3" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>hostListBox</cstring>
+            </property>
+            <property name="enabled">
+                <bool>false</bool>
+            </property>
+            <property name="frameShape">
+                <enum>Box</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Plain</enum>
+            </property>
+            <property name="lineWidth">
+                <number>1</number>
+            </property>
+            <property name="vScrollBarMode">
+                <enum>Auto</enum>
+            </property>
+        </widget>
+        <widget class="QLabel" row="0" column="0">
+            <property name="name">
+                <cstring>textLabel2</cstring>
+            </property>
+            <property name="text">
+                <string>Groups</string>
+            </property>
+        </widget>
+        <widget class="QLabel" row="1" column="3">
+            <property name="name">
+                <cstring>textLabel1</cstring>
+            </property>
+            <property name="text">
+                <string>Hosts:</string>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<images>
+    <image name="image0">
+        <data format="PNG" length="2575">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af4000009d649444154789c75975b6f1bd7b9869fb5d690339c190e499122258a526c496e63c5890dcb7063374ae31628da8d8d5d20d817fd0901fa27f25b7259a017bbd9457351046d53c7688204a963c1b264d9966d3a3a991a9e86c339ad5ec8a6adb87981c1803358f33deb3b2e8a5ffdefbb7a6e7901c33259a9bfc5e6fa3db60f77689caa92b304b9034167f33e8ba512426b7682802c8aa87b1e619290cdccf0b4d3a1582cd26cb6f07d49b5dac2b6f3148b19a699f243aad7eb422c2c2f68afe4e1591e6beface1791e5f7df3151dbf831082d66c0b431aecb5db18b91c8eeb625a16499290cfe7c9e5f398a649bd5ec7f7bb7cf9c5371c1ef629572ae4f30aab90e1fb3e9665b1f6ce3b388e3301989b9b435cbb764dd76a3586474774f6f678f3ec5912a5e88ec7082150cac434ab0821c932492e37408894feddbbbc5ea920723906e3311b7b7b348460b5d924e779e46a3536c663fefcb7bf811044e331effeec6784a3117eb78b10822b57aea06a4a7db86a9a5c324daececf538f631a5144796585e6c202f7ee3d627333c0b6cf92240e71ec313f5fe4c68dcf78f8e81135cba29ccfd32a16d9dedb63637797f54e87c3769b6a1c73ba58a42925ca3471a7a7f9fcc60d1e3d7a44bfdf27cb32d47badd687591cf379778fdb6ec8467ec41d6784ae19940a158a059b5bb7fec9dd87ff20f7a33d0a759f51aecfec8505ace2140ff67d6e6f6e52b76daeaeac70717a9a53950a773a1dfe79e70e0dcbe2cd336798735da26e971ddf2797cb91330c5aad16e2ec8fe775f9ad19eca6876119d8b68da10c922c21aff39cb7ce2332c15ffefa176e6edf64e5e72bd4a66bc4718c8e340b7281cdaf6eb175eb16a7eb756cc7c11f0c1806018be7cfb37dfb363acb705c17db7579637595288ec9b28c9595158cdc8f2b14668b047ec0c1f601e3fe98244a48a204c77268fd778be9ca346b57d60882809b7fba89a10c2cd3c2b66da656a7f8c5af7fcd5babab1c3c798265db9c711c1cd7a5582a71f9a73f258e6346a311c3e17072455184effb88cbbfbaacd7de5ee30fbfff03c3c110cbb4701c87bc9167b1b5c8c58b17b16d9b2449d05a331e8f310c03a5144288131feef7fb938f0b2100104260180649926018069ee7e1380eb55aed3804e7de3ca77f72f927cccfcfe3380e4992301a8db877ef1eed769badad2d96969668341a8c4623e2389e949110825c2e87520a2925aeeb62db36a6692284406b8d10022925c56211cbb2266bb32ca3d168205aad964ed39446a3c1a54b97989999e1e0e0809d9d1dd6d7d7c9b28c8b172fb2b4b484d67a62f8f95d0841a150c0711ca494270c846148afd7a3dfefd3ebf5180e878cc763b4d61886c1f9f3e711d56a555fb87081f7df7f9f8f3ffe9876bb4da954424a89d69aa9a9290e0f0f595d5de5d4a9538c9ff507ad35a3d1887ebf3f31d0ebf5188d4668ad514a6159169ee7e1baee045a4a39015d5a5a42acadade95c2ec7e5cb97595c5c2449123a9d0e611802b0b5b54514457cfbedb78461c8fcfcfc64e7b66d532c1629954a140a059224214d53945268ad279b504ae1791ec56211c3304e7442a3d96cb2bebece471f7d8461187cf0c10798a689e7796c6f6f63db3677eedc61381c02b0b0b080ebba2742f13c34b55a0dcff326069244321e2bc25011040adf17140a29d3d3214a69868301e2dcb973badbed9224c964e1e2e222a3d108c330d8dddd2549129452d46a357ef1de7bcc94cbe4c7635492302c97c95e8a3d401cc7fcf18f5fd3685c259f7f0e9ba2d418c38850ca6066c6a0390b469aa6a4693a2917d775b12c8b66b349a954e2ed37dea0787444cd30281b06f9761bf1f0215a6b34e094cbec2f2f9f8078f26497cdcd2f79fcf82eafbffe5f54ab4d4c3320cb4c92e4b8d2daed9072f9358cd3a74f53abd528140a54ab555cd7454a890802e4fdfb64bbbb184250751c6496312e14085d1701e486432cdfa7bebdcddef2327a9268e0ba1683c111fffad7ef595a7a9756eb12961552288c485393382e321c5aa8ab57af7eb8b2b242a552c1344de4788cdada426f6c90f67a645a936a8d004ca530d294e2cc0c59a5423f0818e6f3c45144653824a85440083ccf636aca6377778f200879faf43e41d0a15c3e439a7a24491e50341a1e06c0783ce6d1f6364b5a23f7f78fbbdef70e0f8328a290cb515c5ec69d9b23faec336acf922f550ad9e9501782fdd3a74108969797b12c8b4f3ffd8c274f3aeceddd26089ef29bdffc8ed5d50b789e4ba562a12e5cb8f0a110828d4f3f65514ab22ce33f49036996911f0c081e3c806739a08540098169594c178bd88ec39194082128954accced6e9f57c7c7fc0783c6473f34bfafd233ef9e4ffd8dcfcf2d803d56a95fd3024c9328cef65f4cb0ae298fe784cd1b6b11d875aa341b5d9c4f03cfa5946bbd3e1f1f63669a3812a140068341afcf2973fe7faf5cf595f7f40180ef9fbdf3f06a052593d06300c835029065144f9a57efd5c99d6a4594694a6f49384b3b3b31c66195fdfbac5d6279fb0ebfb74c390208e89b38cfff9ed6f699e3a35595f2e97b976ed3dcae56ff8faeb75c230c6b62d66676b4cdad24cabc5935eef04807e9680719a328822f686431ef83effbfb1c1384988b26cd2845e96dfedd2fcde33dbb6b972e56dce9d7b83288a701c87a5a5a51700f3f3f33cb87e9dd76b35c4b35dc7594610c71c0601f77d9f76af4794fef02917401a068ff61fd3324e13c8003bb3f192e3ee28a5a4542abdf06c969d04b8deed12a529020893844e18f2d0f7d9e976095e1ac32f4b9979dc6689e27c19b755c69df3301c832dbd051a841434f34d66a29957d60e87c317005353538ca4647730400941bbdfe7beefd30bc349494aa5c8591605af883def515e99a238ef817c360f34080464208544c8e3a1b52ff621cf2b108ee3bc0000a8379b7cd16ea384c08f63bc4a851f9d3943b152c1f13c2cdb86021c98078cc4082d20891394a12613f2f9f532801082a7ea2912493daa4fec19867112e0dab56becb7dbccccce526b34c89be6e45d42c24eb4c3e3e031499ca0b363bf8c07639cb2736c5008847c61fce5bbcc2447ea0891174c47d32f205e0668b55ab45aad136ed268f6923dee8dee118e43b2e799ff2c2ed128c22c9898b6793c43e4f1114c0a79e2f7a5ca25468311ebf13ab22fa946d557012646b5e6e8e8886ed6e5c83ec20f7db22403cd2b65a7334dd00b306d13539a485f921653644122d53184294dce35cf71fdbbeb144605fa461f71249863ee5580dbb76f73e38b1b4c9d9fa2f45a896c98a133fd1febfdb9d23865d41fe1d65d9ab34d8cbe417810d2d55db252c6426301a51487c921f967ff250323c0cffbaf02eceeeea23d8d3beb92c6e90977ff90b43ef642e005b4ed36aaa470a75d66d52caaaf68a9168f83c7a89c2227730829b04c0bed688cefbefbeec469368a228eda4714ee1690ea87e7c22b12d0dfed53ae95310c0329254a299452dc6cdf3cb62179919c42205f93fc1bc1cd669e42f6578f0000000049454e44ae426082</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>cancelButton</sender>
+        <signal>clicked()</signal>
+        <receiver>GroupDialogForm</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>deleteButton</sender>
+        <signal>clicked()</signal>
+        <receiver>GroupDialogForm</receiver>
+        <slot>slotDelete()</slot>
+    </connection>
+    <connection>
+        <sender>addButton</sender>
+        <signal>clicked()</signal>
+        <receiver>GroupDialogForm</receiver>
+        <slot>slotAdd()</slot>
+    </connection>
+    <connection>
+        <sender>groupListBox</sender>
+        <signal>selectionChanged(QListBoxItem*)</signal>
+        <receiver>GroupDialogForm</receiver>
+        <slot>slotSelectionChanged(QListBoxItem*)</slot>
+    </connection>
+    <connection>
+        <sender>okButton</sender>
+        <signal>clicked()</signal>
+        <receiver>GroupDialogForm</receiver>
+        <slot>slotOk()</slot>
+    </connection>
+    <connection>
+        <sender>noGroupButton</sender>
+        <signal>clicked()</signal>
+        <receiver>GroupDialogForm</receiver>
+        <slot>slotNoGroup()</slot>
+    </connection>
+</connections>
+<slots>
+    <slot>slotDelete()</slot>
+    <slot>slotAdd()</slot>
+    <slot>slotSelectionChanged(QListBoxItem *)</slot>
+    <slot>slotNoGroup()</slot>
+    <slot>slotOk()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="6"/>
+</UI>

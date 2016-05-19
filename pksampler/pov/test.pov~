@@ -1,0 +1,16 @@
+
+#include "button.inc"
+
+
+PK_Camera()
+PK_Light()
+
+PK_Plane()
+
+sphere {
+   <0,.3,0>,
+   .5 
+   pigment { Red }
+   finish { phong 1 }
+   scale <1,1.5,1>
+}

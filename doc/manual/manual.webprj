@@ -1,0 +1,13 @@
+<!DOCTYPE webproject>
+<webproject>
+  <project usePreviewPrefix="0" previewPrefix="" type="Local" name="manual" encoding="iso 8859-1" >
+    <upload/>
+    <author>Patrick Stinson</author>
+    <email>patrickkidd@gci.net</email>
+    <defaultDTD>-//W3C//DTD HTML 4.01 Transitional//EN</defaultDTD>
+    <item url="" uploadstatus="1" />
+    <templates>templates/</templates>
+    <toolbars>toolbars/</toolbars>
+    <item url="index.html" uploadstatus="1" />
+  </project>
+</webproject>

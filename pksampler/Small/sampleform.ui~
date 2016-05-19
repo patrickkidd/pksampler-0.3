@@ -1,0 +1,205 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>SampleForm</class>
+<widget class="QFrame">
+    <property name="name">
+        <cstring>SampleForm</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>176</width>
+            <height>360</height>
+        </rect>
+    </property>
+    <property name="minimumSize">
+        <size>
+            <width>170</width>
+            <height>360</height>
+        </size>
+    </property>
+    <property name="maximumSize">
+        <size>
+            <width>180</width>
+            <height>360</height>
+        </size>
+    </property>
+    <property name="caption">
+        <string>SampleForm</string>
+    </property>
+    <property name="frameShape">
+        <enum>NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+        <enum>Plain</enum>
+    </property>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>cueButton</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>95</x>
+                <y>305</y>
+                <width>75</width>
+                <height>45</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Cue</string>
+        </property>
+    </widget>
+    <widget class="QSlider">
+        <property name="name">
+            <cstring>volumeSlider</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>5</x>
+                <y>175</y>
+                <width>45</width>
+                <height>175</height>
+            </rect>
+        </property>
+        <property name="maxValue">
+            <number>127</number>
+        </property>
+        <property name="orientation">
+            <enum>Vertical</enum>
+        </property>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>playButton</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>95</x>
+                <y>255</y>
+                <width>75</width>
+                <height>45</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Play</string>
+        </property>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>deleteButton</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>5</x>
+                <y>15</y>
+                <width>75</width>
+                <height>45</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Delete</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>85</x>
+                <y>30</y>
+                <width>86</width>
+                <height>16</height>
+            </rect>
+        </property>
+        <property name="paletteBackgroundColor">
+            <color>
+                <red>123</red>
+                <green>247</green>
+                <blue>185</blue>
+            </color>
+        </property>
+        <property name="frameShape">
+            <enum>TabWidgetPanel</enum>
+        </property>
+        <property name="text">
+            <string>0</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>titleLabel</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>15</x>
+                <y>5</y>
+                <width>106</width>
+                <height>12</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string></string>
+        </property>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>loopingButton</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>95</x>
+                <y>205</y>
+                <width>75</width>
+                <height>45</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Looping</string>
+        </property>
+        <property name="toggleButton">
+            <bool>true</bool>
+        </property>
+    </widget>
+</widget>
+<connections>
+    <connection>
+        <sender>cueButton</sender>
+        <signal>clicked()</signal>
+        <receiver>SampleForm</receiver>
+        <slot>slotCue()</slot>
+    </connection>
+    <connection>
+        <sender>playButton</sender>
+        <signal>clicked()</signal>
+        <receiver>SampleForm</receiver>
+        <slot>slotPlay()</slot>
+    </connection>
+    <connection>
+        <sender>volumeSlider</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>SampleForm</receiver>
+        <slot>slotVolume(int)</slot>
+    </connection>
+    <connection>
+        <sender>deleteButton</sender>
+        <signal>clicked()</signal>
+        <receiver>SampleForm</receiver>
+        <slot>slotDelete()</slot>
+    </connection>
+    <connection>
+        <sender>loopingButton</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SampleForm</receiver>
+        <slot>slotLooping(bool)</slot>
+    </connection>
+</connections>
+<slots>
+    <slot>slotPlay()</slot>
+    <slot>slotCue()</slot>
+    <slot>slotVolume(int)</slot>
+    <slot>slotDelete()</slot>
+    <slot>slotLooping(bool)</slot>
+</slots>
+<layoutdefaults spacing="6" margin="6"/>
+</UI>

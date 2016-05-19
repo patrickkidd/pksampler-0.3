@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Session SYSTEM "Session-3.5.dtd">
+<!-- eric3 session file for project pksampler -->
+<!-- This file was generated automatically, do not edit. -->
+<!-- Saved: 2005-04-27, 15:43:00 -->
+<Session version="3.5">
+  <Filenames>
+    <Filename cline="0" cindex="0">/home/ajole/src/pk/pksampler-0.3/pksampler/pksampler.py</Filename>
+    <Filename cline="2" cindex="16">/home/ajole/src/pk/pksampler-0.3/pksampler/Black/Views/SelectorView.py</Filename>
+    <Filename cline="52" cindex="0">/home/ajole/src/pk/pksampler-0.3/pksampler/black.py</Filename>
+    <Filename cline="168" cindex="0">/home/ajole/src/pk/pksampler-0.3/pksampler/Grouping/Group.py</Filename>
+    <Filename cline="208" cindex="23">/home/ajole/src/pk/pksampler-0.3/pksampler/SampleControl.py</Filename>
+  </Filenames>
+  <ActiveWindow cline="208" cindex="23">/home/ajole/src/pk/pksampler-0.3/pksampler/SampleControl.py</ActiveWindow>
+  <Breakpoints>
+  </Breakpoints>
+  <DebugInfo>
+    <CommandLine></CommandLine>
+    <WorkingDirectory></WorkingDirectory>
+    <ReportExceptions value="1" />
+    <Exceptions>
+    </Exceptions>
+    <TracePython value="0" />
+  </DebugInfo>
+  <Bookmarks>
+  </Bookmarks>
+</Session>

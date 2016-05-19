@@ -1,0 +1,58 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>pitchtestform</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>pitchtestform</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>PitchTest</string>
+    </property>
+    <widget class="QSlider">
+        <property name="name">
+            <cstring>slider1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>30</x>
+                <y>70</y>
+                <width>16</width>
+                <height>181</height>
+            </rect>
+        </property>
+        <property name="maxValue">
+            <number>127</number>
+        </property>
+        <property name="orientation">
+            <enum>Vertical</enum>
+        </property>
+    </widget>
+    <widget class="QSlider">
+        <property name="name">
+            <cstring>slider2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>50</x>
+                <y>70</y>
+                <width>16</width>
+                <height>181</height>
+            </rect>
+        </property>
+        <property name="maxValue">
+            <number>127</number>
+        </property>
+        <property name="orientation">
+            <enum>Vertical</enum>
+        </property>
+    </widget>
+</widget>
+<layoutdefaults spacing="6" margin="6"/>
+</UI>

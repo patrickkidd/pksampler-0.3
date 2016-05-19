@@ -1,0 +1,307 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>PatchForm</class>
+<comment>Python:import os, os.path</comment>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>PatchForm</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>532</width>
+            <height>303</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>New Patch</string>
+    </property>
+    <property name="sizeGripEnabled">
+        <bool>true</bool>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout6</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Name</string>
+                    </property>
+                </widget>
+                <widget class="QLineEdit">
+                    <property name="name">
+                        <cstring>nameLineEdit</cstring>
+                    </property>
+                    <property name="text">
+                        <string>mypatch</string>
+                    </property>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Tempo (BPMs)</string>
+                    </property>
+                </widget>
+                <widget class="QSpinBox">
+                    <property name="name">
+                        <cstring>tempoSpinBox</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>160</number>
+                    </property>
+                    <property name="value">
+                        <number>137</number>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>saveButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image0</pixmap>
+                    </property>
+                    <property name="flat">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>openButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image1</pixmap>
+                    </property>
+                    <property name="flat">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>groupBox1</cstring>
+            </property>
+            <property name="title">
+                <string>Samples</string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QListBox">
+                    <property name="name">
+                        <cstring>filenamesListBox</cstring>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout5</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>addOneButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>add one</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>addManyButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>add many</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>removeButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>remove</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>Layout1</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>buttonHelp</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Help</string>
+                    </property>
+                    <property name="accel">
+                        <string>F1</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>Horizontal Spacing2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>buttonOk</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Save and Exit</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+S</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>true</bool>
+                    </property>
+                    <property name="default">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>buttonCancel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Cancel</string>
+                    </property>
+                    <property name="accel">
+                        <string></string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </vbox>
+</widget>
+<images>
+    <image name="image0">
+        <data format="PNG" length="763">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000002c249444154789cd5943d8f1c4510869fd99d35773ef0c705c8329203021001827f8090900810883f003111227506d14504fc03624840204182217300423210fa641964c9be1577bb33bbd3dd55d5d504333bc7c96b3b764badaaee19bdfdf4dbd50d4f5bab36c90f3ffefa515d4f0f5433b37a42d376c4a464cbccea29661911c52ca36aa86ea271e79f39f3a3c577cd62f5f1cf373e5f00d41be1ba9e1ebcf4cab54b5071edea3e9f7ef10dcb2670e1b95d3efbe4fdc7d27d7fe3167fdebafdc1b75ffd02f0e119e194942e0ad5b0899bbf1f72f9c279ea7af2c46d2f9a0e07dcf3bb23e82691617b55d50bef5fdce3e517aff0c295cb4f14163196cb1529c938772a2c8aa831a97ac2b7df7895abcf5f64ffd2b38f15752f2c9b96e5a2c12c3f2c9cc410cd94629c341defbdf53aa5144a81f9713be4fd7813cd8c939396a307c774216266db887b2bba98f8ed8f3ba865cc32967dc8bdaf889c1131624834cb96f53a707cd212a33c8a581155421c4aca725f529607ff8d98941885b65d11ba484a424a8a88106324e72dc23a58e1ee9cdf3d87651f6ad7a88ae30693929996ccce6cca64f71cb349c56c3ae12804521272f647111b3bcfcc78e7cdd7707742104248a4a4a8da6097f5072d36f62fbffe8979488ff718c02c1342220441d5b6089f5d208920a2dbad484911cd981a77effecbfdfb0daa365c611daeb08ef698f5e23b3b35290a49d2766119c84c95aa2aecedd588802ad475a1ae613a2d98c16452502d5455011c1988ddb7799c94d5ba239bb15a45168b6ea4ea094f1f21111d1fa1d9ac1aac90edc43124d6eb407147d570cfe4fc7037eba3bb8d42fd42b29d38c4440809bc606694e2b8f7bdcff330ee63ce9bbca022a828ee5b88c33ab25eb4e46cac56cbf1e44fabe0ec21aae6f19f75db90ba35bead8e8fe78bebf7fe7e701053e2f65f87e45c46e29c0ba5f8ffe64ebfb917ee1dcee982e2ce759edaf61f121ae0ffdf794bbc0000000049454e44ae426082</data>
+    </image>
+    <image name="image1">
+        <data format="PNG" length="1072">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000003f749444154789cb5955f68d56518c73fe7777ed333dd3f67fecb74c722ed62f9071223332c5620062d0982a88bec22888aeac242322d2b2808b12e022fb4a0eea216155de46866641bcaccd4e2b464736ecef36f673be7fcfebc7f9eb78b6dce95125ef8c2c3fbc0fb3c9ff7e179bf0f6fc239c78d58de0da10289eb4d78f5cdeeb41877a86696b7b65cd62b3e7a7f63e96a71d755f16b6f75bfd4dc98eaddfe54ebe6ed4fb636599143d70c76ce5dd3a6d6ae777ad6eedcdbd3dbd935e2aa55e7b259ed4647adfbf860c63df3c24fed57e3265a9efec3b56f5e8808280bda08cac017df0f95c26fd7ccdbf3def13de95b9a763ff8400b8df53518e3d0da628c23954af2fabbdda5b1f178c5e707ee9fd192c4a61de7dcbedd2b5006220bca40ac61a82f64e058866d6dcbb86b5d335a835260ed34d839c7df8315f67e78aae387d3899739b5b97f0aecff5b6e46c170cf10f526e28d17d730a716acbd7a1b451cad2b9bd8b4aeb95da4f069e729a6c156a6c1a5f3214327fa79b82d4d7a79ed35df0560b462d8df71099c43ebb9648aa3fb5873642d22e01cfe95d58c8f8c73cffa25ff0b2d5585adbb32b4dd7b33b72eab4304d2ab16a7cb55fb8a3694f67f70bcdeb7329de02d5dc8ce83a7d9b05e7016ac58ac15c438c43acca4ffddaf451edbd2c2ac054d1c190011989d82df7ac7ea073bfbb240d78c567c753847faf605ac5eea33efa63904e20895235410448e400b5104cfae5c4c5ce3d3736e029af0a03010923dd66f914a9a847b7b06f8f0d12c99cf5a2964358df37da40e7265c89761e0225446211f433e0bc592259f8b090a152e9ec9521aae96881283d4db5578aecb376602fa634fc8a63b1ba84d41cdc21a7a33e32c58de40e602f40dc048ce90cb5b2ee50db9bc21288584a52aa5e1519c721090c5b73ed8b3641eeaf765526e47ba8b6cdbd84c55e0520c59af813f4f5ac42509228752102921568e2816f2b9001d68983b176c0cc490544d383900e08915c6abf0fbd9128fb7d59129c285224440b12c8c5584583b22e5501a4a639a919100ebcfc64bcd9e2997a469c4d231a963387caccc7dab1b19a9409d0f4b525067a16189cf585161fc04cd6268d011f58b14b735259138468218136bc2c0902bc8fc81419da57fcb4900df5847d72f05763cba883bea276f9e075a431439b4f68863431c5b94f250ca278a0c5afb44512d4ad5a0548a2f8f8ecdffe4bcfbe6b274ab81a17fa0cc231b660e85e781ef7b2493093ccf9bf4bdcbbee74d9c4df93f9f0941dcd753f97e61b8ca734fb4fc67ba92c9097338440cb1d284514c186a824011c53151a8d15a88b5a1efaf002e6cedb80cc64bd079a2c8ddcf8fe1c42102884344b056b05a30c6608d608dc1188bd1163132b18ba51a38085cc79585256ed467fa0f0f457af9badf7d440000000049454e44ae426082</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>buttonOk</sender>
+        <signal>clicked()</signal>
+        <receiver>PatchForm</receiver>
+        <slot>accept()</slot>
+    </connection>
+    <connection>
+        <sender>buttonCancel</sender>
+        <signal>clicked()</signal>
+        <receiver>PatchForm</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>addOneButton</sender>
+        <signal>clicked()</signal>
+        <receiver>PatchForm</receiver>
+        <slot>slotAddOne()</slot>
+    </connection>
+    <connection>
+        <sender>addManyButton</sender>
+        <signal>clicked()</signal>
+        <receiver>PatchForm</receiver>
+        <slot>slotAddMany()</slot>
+    </connection>
+    <connection>
+        <sender>nameLineEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>PatchForm</receiver>
+        <slot>slotNameChanged(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>saveButton</sender>
+        <signal>clicked()</signal>
+        <receiver>PatchForm</receiver>
+        <slot>slotSaveAs()</slot>
+    </connection>
+    <connection>
+        <sender>removeButton</sender>
+        <signal>clicked()</signal>
+        <receiver>PatchForm</receiver>
+        <slot>slotRemove()</slot>
+    </connection>
+    <connection>
+        <sender>saveButton</sender>
+        <signal>clicked()</signal>
+        <receiver>PatchForm</receiver>
+        <slot>slotSaveAs()</slot>
+    </connection>
+    <connection>
+        <sender>openButton</sender>
+        <signal>clicked()</signal>
+        <receiver>PatchForm</receiver>
+        <slot>slotOpen()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">newpatchform.ui.h</include>
+</includes>
+<slots>
+    <slot>slotAddOne()</slot>
+    <slot>slotAddMany()</slot>
+    <slot>slotNameChanged( const QString &amp; )</slot>
+    <slot>slotRemove()</slot>
+    <slot>slotOpen()</slot>
+    <slot>slotSaveAs()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

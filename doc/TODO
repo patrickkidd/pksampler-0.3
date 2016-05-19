@@ -1,0 +1,343 @@
+PKSAMPLER-0.2
+
+The big TODO: -> v0.3
+----------------------------------
+
+- Check out what the "Group" and "Auto Start" buttons are doing wrt djengine.
+release!
+        FUNCTIONS:
+
+
+
+ROADMAP
+    - Make cut-backs to get a stable release out.
+    - Focus on 'Sample'
+        - create test widget for SampleControl
+        - load test SampleWidgets.
+    - Check for server death (timeouts)
+    ** - Catch pkaudiocore.FileError for invalid sample files.
+    ** - Change pkaudiocore.ServerError to something better suiting 
+	(FileError)
+    - Scaled volumes?
+    - For god's sake clean up the grouping code.
+    - Get rid of "singleton" pattern for, and rename Sequencer to GroupManager
+    - "Remove all tracks" Button
+
+Bugs in pksampler-0.2
+---------------------------------------------------
+- Mixer sliders react strangely in Fedora.
+  Check mouse reactions on all types of widgets.
+- Dragging a sample while another is animating breaks one sample.
+
+
+SERVER-LEVEL SYNCRONIZATION:
+- Sample::onLoop() messages to grouped samples?
+	- That means we have to include the group notion in C++.
+	- Aren't Sample objects supposed to be on-offs?
+- Work on Sequencer for synced notes.
+
+
+GROUPING:
+
+TrackFrame
+    Purely graphical - marks a track active
+TrackFramePool
+    Arranges tracks, supports drag-n-drop.
+SampleGroup:
+    Contains controls for controlling a Sequencer.Group
+GroupWidgetStack
+    Widget stack that changes button color to match the childerens' groups.
+    
+Buttons
+-----------------
+**problem: group overrides autostart - counterintuitive
+
+Start together (Group.Group)
+        SampleControl.setGrouped
+Start on sync (DJEngine)
+
+        SampleControl.setGroup  --  DJEngine gid
+                set gid on DJEngine
+        SampleControl.setGrouped  --  bool (arbitrary)
+                used by Group.Group for misc actions
+                SampleControl.slotStart()  --  requests start from group?
+
+        Group.Group.setBeatSynced  --  "Auto Start"
+                ON:  SampleControl.setGroup(DJEngine gid)
+                OFF: SampleControl.setGroup(0)
+        SampleControl.slotStart
+                ** Deep sync has priority over group start
+
+Network
+--------------
+PKAudioServer
+    Move to pkaudio package.
+    Do a simple callback register, like atexit.register()
+    
+
+Use Cases
+--------------
+USE CASE: (Logical grouping) SampleControl.slotStart
+SampleControl.slotStart:
+SampleControl.forceStart() [emit: start]
+    GroupProxy.slotStart()
+    Group.action('start', groupProxy)
+        sampleControls[i].slotStart()
+             ... repeat ...
+            Group.action() ---> X RECURSION STOP
+            
+            
+USE CASE: (Graphical grouping) SampleWidget.ControlWidget.startButton
+SampleControl.slotStart()
+    GroupProxy.slotStart()
+    Group.action('start', groupProxy) [emit: 'start']
+        Grouping.Widgets.SampleGroup.slotGroupStart(sampleControl)
+        self.trackFrames[i].track.controllerWidget.startButton.AnimateClick()
+        self.trackFrames[i].track.collapsedControllerWidget.startButton.AnimateClick()
+        
+    SampleControl.slotCue()
+    GroupProxy.slotStart()
+    Group.action('cue', groupProxy) [emit: 'cue']
+        Grouping.Widgets.SampleGroup.slotGroupStart(sampleControl)
+        self.trackFrames[i].track.controllerWidget.cueButton.AnimateClick()
+    
+    
+
+Le Grande TODO: --> v1.0
+----------------------------------
+
+Use pkpovgui.Conf for config; look at eric: matchUpValues(), slotApply()
+
+
+BUGS: **  = severe
+
+- "Underlying C++ object deleted" if dragged playing sample widget to sample 
+  trash
+- pkaudiod seg fault if except in SampleControl.ControlWidget.SlotStart
+- KeyError: -1
+    PovWidgets.py:539 -> Widgets.py:473
+- Underlying C/C++ object deleted: 
+    Sequencer.py:410 -> Sequencer.py:490 -> Sample.py:1010 -> Widgets.py:398
+- Seg fault after detecting tempo for short sample, then unloading when it 
+  stopped at 50%.
+    - easily reproducable (not anymore)
+- Seg fault when old testing code was prepended to SampleControl.slotLoad():
+  load the sample, connect the port, delete the sample. Better not let this
+  one get away.
+** Seg fault sometimes on sample delete
+** Selector acts wierd with touchscreen
+    - Selector needs to releive mouse_pressed or something (sometimes needs a 
+      click off the SelectorItem)
+- OggDecoder size descrepencies again. s.pos(s.length() / 2) doesn't work
+- Some thread stopped dieing properly sometimes after adding the mixer 
+  reconnect code.
+
+BIG ONES:
+
+- Get rid of volume control for cued samples
+- midi button on sample widgets (get rid of double-click)
+- Searching sucks (is it needed? unask the question?)
+- Tempo matching accross samples
+- Utilize the looping/ip events in
+- Proportional volume control
+- Get Globals.ConfFile to save track tempo if it exists in a sample
+- Some way to ID sample widgets (less important w/ audio zones)
+- SelectorItem selector dragging
+- LED frame timer is not needed.
+
+
+LITTLE ONES:
+
+- Disk access light/CPU usage indicator.
+- Check efficiency of LocalSampleGroup/TrackFramePool relationship wrt loops/signals, etc.
+- PovWidgets.LED('led') doesn't work
+- Fix the need for the 'pathAdded' signals from the ControlPanel.
+- Selector widget shortcut buttons
+- Peak reader (see CORE::PeakReader)
+- Add 'TrackFrameAnimation' class to drag n' drop actions.
+- Animated track destroying.
+- Animate WidgetStack
+ 
+
+FINISHED:
+-------------------------------------------------------------------------------
+
+- The group code needs a total re-look and re-write.
+- Turn off auto start by default.
+- Fixed ControlFrame height in upper right of main window
+- Ensure pkaudiod dies when python exits.
+- Check pkaudio.disconnect() and waiting for child pid.
+- Performance problem when adding new samples.
+
+POST-0.2
+
+- Get SampleControl.slotConnectMixers() to check for re-alignment of the main 
+  mixers.
+- Cached SampleWidgets
+- Get SampleWidgets to use global DisplayTimer.
+- Wrote install.py, wrote the copying and everything your self, and use sudo
+- Moved the rack back into the pkstudio package, which is installed seperately.
+    - If the pkstudio package does not exist, the rack is not loaded.
+- Direction Changes:
+    - Seperate pkaudio/pypkaudio/pksampler.
+    - Assess the advantages of using kdelibs to improve code quality/bloat.
+- Finish globalized group code:
+        -Modify all refs to TrackFramePool as a sample group.
+        -Add group ID buttons to MainWindow.widgetStack
+        -Add group selector dialog to PKSampler.py
+        -Modify sample looping event sequence to hit SampleGroups instead of TrackFramePools.
+        -Apply Singleton pattern to Sequencer
+# - Zero-out pitch slider action
+- The pitch buttons don't return to nominal pitch when collapsed.
+- Re-settable midi channels
+- Fixed bug where nugding the pitch would break pitch bending.
+- Fixed the pitch display problems with nudging
+- Fixed pitch bending with the collapsed sample widget
+- Added a bitchin precise pitch jog wheel, thereby fixing beat matching
+    -2 options:
+        fixed value: Has a value and a very large range.
+        relative value: value is expressed in deltas (this one's a bit more interesting)
+- Now using atexit to destroy the singletons correctly upon exit.
+** Something is hogging the CPU (and the audio thread!!)
+- Added new RtAudio class, which fixed several performance problems.
+# - Fixed seg faults on deletion of invalid samples(FileReader, actually)
+- Semi-static controls for Sample.Sample:
+    - pitch range
+    - set tempo
+    - match tempo
+- Socket-based beat/looping messages.
+- Nailed down midi support
+- Grouped volume control
+- Set looping based on sample length upon init.
+- Collapsable Selector widget, shortcut buttons
+- Audio devices control panel.
+
+#- Configurable pitch range
+#- Add a digit to the pitch display
+
+#- Automatic sample starting
+#- Check out group_proxy wrt. extendibility.
+#    - Currently it is a pain to add new functions
+#    - Should the code get cleaned up,
+#        or should some sort of patter be applied to it? Re-eval!
+****************************************
+-Cue zone -> RtAudio (Wait for Quattro)
+************************************
+-Make track destroying immediately noticable (there is a delay)
+-Add configurable Selector paths.
+Bug: C++ Sample objects stop looping sometimes.
+    - Conditons: engine on, playing, looping, position not changed recently.
+    - Run test external to Sample (python?)
+-Move settings into python settings file or something.
+-Grooves 
+    - Persistence
+    - Logical Categories, groove items
+-Master Groove Controls:
+    - Save state
+    - Volume (adjust synchronously) 
+-LADSPA Effects
+  -static init code
+  -store statically: descriptors, labels/filenames
+  -local: analysePlugin (because it stores plugin info values)
+  -Subclass EffectControl to manip. floats.
+  -Sort out control interface wrt int/float mismatch.
+Bug: Sample states don't get saved. "QSettings::sync: filename is null/empty"
+-Group unpause restarts samples.
+-Selection notification in Selector.
+-Sample grouping (Grooves)!
+    - Get the Groove Categories to use a nameplate all the time, 
+            and set the groove items' color
+    - Visual group_id cycling [frame colors, LCDDigits, colored led's, ... ]
+    - How many groups do you want? if few, use static group selector.
+    - Infinite groups would be nice, like loading samples. set and forget...
+    - Dragging the widgets into the TrackFramePools should set the groups
+-Persistent type
+    - data format
+    - implement subclass files by filling data
+    - KISS! try to stay away from complicated API (dicts and so on)
+    - read in MainWindow.loadGroove()
+    { 'key:pitch' : val, path: {volume:val, } } 
+*******
+-Determine relationship between Widgets.py,PovWidgets.py, and pov_pixmaps.py
+    -keep all pixmaps in embedded_pixmaps.py, import in 'try' block
+-Ogg files report location / 2
+-Get Track widgets to detect EOF and stop timers, set led, etc.
+-Error handling for no audio devices.
+-Fixed WaveDecoder
+-Eval flow for signals to & from SampleControl (ie. pitch slider wrt nudge)
+-Background pixmap caching.
+-OggDecoder can't Reset()
+-Fix time display on Track.Track
+-Arrange buttons for touch screen
+-Re-think MediaLayer's significance, Re: 'IO()'
+-Default to looping: on
+
+
+CUT CORNERS:
+
+Check efficiency of LocalSampleGroup/TrackFramePool relationship wrt loops/signals, etc.
+Duplicate samples are deleted in groove files. (I think this is OK)
+
+
++++ Maybes +++
+
+
+
+USABILITY:
+-------------------------------------
+-Min/Max,Fine/Course shortcut buttons on cue editor
+  
+
+CRUNCH POINTS: (sketchy code)
+-------------------------------------
+(none)
+
+
+OO DESIGN PROBLEMS:
+----------------------------------
+(none)
+
+C++ / PYTHON RELATIONSHIP
+----------------------------------------
+Rules:
+    - Anything dealing with memory, or any function carried out in a callback.
+    - A C thread should not enter a python method.
+
+Main Functions:
+    -Load tracks from files.
+    -Play a track at a certain tempo.
+    -Start a track in time.
+    -Control effects.
+    -Register MIDI Channels
+
+Private Classes (not python-exposed):
+    -PK_BeatDaemon
+    -PK_BufferManager
+    -PK_Layer
+    -PK_ObjectRegistry
+    -PK_RegisteredObject
+    -PK_Stream
+
+  
+PERFORMANCE:
+-----------------------------------------
+-Test different values for PK_MusicLayer::pitchRes
+-Driver Latency!!!
+-Make sure all read-ish calls do not block in any way.
+-Midi message filtering
+-Consolidate timer events?
+
+DONE:
+-Button sizes wrt/touchscreen
+  
+
+BRAINSTORMING:
+----------------------------------
+-Finger control for cutting/mixing up samples. [play pos, gapping, etc]
+    -Maybe some kind finger-guided distance-vector.
+    -*Remember* Daft Punk!
+
+-Distributed pkaudio.
+    - Shared memory system.
+    - Network object model (dcop?)
+

@@ -1,0 +1,123 @@
+// pitch_wheel.inc a big vertical jog wheel
+
+#include "pksampler.inc"
+#include "button.inc"
+
+#declare GrooveHeight = 3;
+#declare GrooveWidth = .4;
+
+#declare GripSplines = 30;    // user adjustable
+#declare GripSplinesInc = (360/GripSplines);
+              
+              
+camera {
+   location <0, 15, 0> // original
+   //location <10,3,0>
+   //location <0,1,-10>
+   look_at 0
+   angle 36
+} 
+               
+               
+// Sliceness onnashape      
+
+#declare PitchWheelIndentShape = union {
+
+   superellipsoid {
+      <.1, .2>
+      scale <.43, 15, GrooveHeight/1.5>            
+   }
+
+   box {
+      <-100,-1,-100>,
+      <100,-100,100>
+   }
+   
+   pigment { White }
+}
+
+
+// Spinner!  
+
+#macro DrawPitchWheel(Color)
+   
+difference {
+      
+      cylinder {
+         <-GrooveWidth+.05, 0, 0>,
+         <GrooveWidth-.05, 0, 0>,
+         GrooveHeight
+      }
+      
+   // left beveled edge
+      
+   difference {   
+      box {
+         <-1, GrooveHeight*1.3, GrooveHeight *1.3>,
+         <-.1, -GrooveHeight*1.3, -GrooveHeight *1.3>
+      } 
+       
+      cone {
+         <-.03,0,0>,
+         GrooveHeight+.1
+         <-3,0,0>,
+         1
+      }
+      translate <-.03,0,0>
+   }
+                       
+                       
+   // left beveled edge
+                         
+   difference {
+      box {
+         <1, GrooveHeight*1.3, GrooveHeight *1.3>,
+         <.1, -GrooveHeight*1.3, -GrooveHeight *1.3>
+      } 
+       
+      cone {
+         <.03,0,0>,
+         GrooveHeight+.1
+         <3,0,0>,
+         1
+      }
+      translate <.03,0,0>
+   }
+   
+   // the little grooves in the wheel
+   #declare I=0;
+   #while(I < GripSplines)
+   cylinder {
+      <-1, 0, -GrooveHeight>
+      <1, 0, -GrooveHeight>
+      .035
+      //pigment { color <1.5,1.5,1.5> } 
+      finish { ambient -.1 }
+      pigment { Color } 
+      rotate x*-(GripSplinesInc*I)
+      #declare I = I + 1;  
+      //translate<0,-GrooveHeight+.1,0>
+   }             
+   #end 
+      
+   pigment { Color }
+   // the main down-translate for the wheel
+   rotate x*-clock
+   translate <0,-GrooveHeight*.83,0>
+   finish { ambient -.1}
+}
+
+#end
+        
+
+          
+                   
+PK_Light()
+
+difference {
+   PK_Plane()
+   PitchWheelIndentShape
+}
+  
+
+DrawPitchWheel(Grey)

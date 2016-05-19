@@ -1,0 +1,17 @@
+#include "button.inc"
+
+#declare PKLabel = text {
+   ttf "arialbi.ttf" "PK" .2, 0
+   pigment { color White }
+   finish { ambient .4 }
+   rotate x*90
+   translate <-.7,.5,-.3>
+   scale <.8,.5,.4> 
+}
+
+#macro DrawPKButton(Color)
+   difference {
+      DrawButton(Color)
+      TranslateForButton(PKLabel)
+   }
+#end

@@ -1,0 +1,157 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>pitchtestform</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>pitchtestform</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>270</width>
+            <height>173</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>PitchTest</string>
+    </property>
+    <hbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider1</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider2</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider3</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider4</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider5</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider6</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider7</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider8</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider9</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider10</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider11</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider12</cstring>
+            </property>
+            <property name="maxValue">
+                <number>127</number>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+    </hbox>
+</widget>
+<layoutdefaults spacing="6" margin="6"/>
+</UI>

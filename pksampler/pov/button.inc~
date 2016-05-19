@@ -1,0 +1,93 @@
+#include "pksampler.inc"
+               
+
+   
+// The position
+   
+#if(clock >= 0 & clock < 3)
+   #declare ElseClock = clock;
+#end
+#if(clock >= 3 & clock < 6)
+   #declare ElseClock = clock - 3;
+#end
+#if(clock >= 6)
+   #declare ElseClock = clock - 6;
+#end
+      
+   
+          
+
+#declare ButtonShapeXScale = .8;
+#declare ButtonIndentXScale = .83;
+   
+
+   
+#macro DrawButton(Color)
+      
+    // BUTTON
+    superellipsoid { 
+      <.3, .15>           
+      scale <ButtonShapeXScale, .3, .45>         
+      pigment { Color }
+      finish { phong 1 }
+      translate <0,-.1+(-.18*ElseClock),0>
+   }
+
+#end
+     
+     
+#macro ButtonClockedColor()
+
+   #if(clock >= 0 & clock < 3)
+      pigment { PKRed }
+   #end
+   #if(clock >= 3 & clock < 6)
+      pigment { PKGreen }
+   #end
+   #if(clock >= 6)
+      pigment { PKBlue }
+   #end
+
+#end
+  
+                  
+/*                  
+#macro DrawButton()
+      
+    // BUTTON
+    superellipsoid { 
+      <.3, .15>           
+      scale <ButtonShapeXScale, .3, .45>         
+      //scale <.8, .3, .8>
+      #if(clock >= 0 & clock < 3)
+         pigment { PKRed }
+      #end
+      #if(clock >= 3 & clock < 6)
+         pigment { PKGreen }
+      #end
+      #if(clock >= 6)
+         pigment { PKBlue }
+      #end
+      finish { phong 1 }
+      translate <0,-.1+(-.18*ElseClock),0>
+   }
+
+#end
+*/
+   
+
+#declare ButtonIndentShape = superellipsoid {
+   <.3, .15>
+   scale <ButtonIndentXScale, 4, .48>
+   pigment { White }
+}
+                      
+             
+// translate an object for the clock value             
+#macro TranslateForButton(O)
+   object {
+      O
+      translate <0,.02+(-.18*ElseClock),0>
+   }                                      
+#end
+   

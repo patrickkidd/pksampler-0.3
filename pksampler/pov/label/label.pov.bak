@@ -1,0 +1,19 @@
+#include "pksampler.inc"
+                      
+PK_Camera()
+PK_Light()
+PK_Plane()
+
+#macro DrawLabel(string,X)
+   text {
+      ttf "ARIALBI.TTF" string .2, 0
+      pigment { Red }
+      rotate x*90
+      translate <-1.1+X,.1,-.27>
+      scale <.5,.7,.35>
+   } 
+#end
+   
+ 
+ 
+DrawLabel("yo", 0)     
